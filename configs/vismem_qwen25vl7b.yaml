@@ -1,0 +1,37 @@
+# Default config Qwen2.5-VL
+model:
+  model_name_or_path: "Qwen/Qwen2.5-VL-7B-Instruct"
+  torch_dtype: "bfloat16"     # "float16" or "bfloat16"
+  device_map: "auto"
+  trust_remote_code: true
+
+vismem:
+  short_invoke_token: "<ms_I>"
+  short_end_token: "<ms_E>"
+  long_invoke_token: "<ml_I>"
+  long_end_token: "<ml_E>"
+
+  query_len: 8
+  short_mem_len: 8
+  long_mem_len: 16
+
+  query_builder:
+    num_layers: 2
+    num_heads: 8
+    dropout: 0.0
+    ff_mult: 4
+
+  former_backend: "lora_llm"
+
+  lora:
+    r: 16
+    alpha: 32
+    dropout: 0.05
+    target_modules: ["q_proj","k_proj","v_proj","o_proj","gate_proj","up_proj","down_proj"]
+
+training:
+  seed: 1234
+  max_new_tokens: 256
+  lr: 2.0e-4
+  batch_size: 1
+  grad_accum: 4

@@ -1,0 +1,1 @@
+python -m vismem.cli.train_stage1 --train_jsonl path_to_dataset --output_dir outputs/stage1

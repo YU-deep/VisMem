@@ -1,0 +1,1 @@
+python -m vismem.cli.infer --enable_vismem --model path_to_model --samples path_to_sample

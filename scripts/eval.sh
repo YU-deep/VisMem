@@ -1,0 +1,1 @@
+python -m vismem.cli.eval --jsonl path_to_dataset --enable_vismem --metric substr
